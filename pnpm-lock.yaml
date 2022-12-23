@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@liuli-util/google-translate-api-free': ^0.1.4
+  '@liuli-util/google-translate-api-free': ^0.2.0
   '@preact/preset-vite': ^2.4.0
   '@types/chrome': ^0.0.206
   '@types/lodash-es': ^4.17.6
@@ -14,7 +14,7 @@ specifiers:
   vite-plugin-chrome-extension: ^0.0.7
 
 dependencies:
-  '@liuli-util/google-translate-api-free': 0.1.4
+  '@liuli-util/google-translate-api-free': 0.2.0
   '@vitalets/google-translate-api': 9.0.0
   lodash-es: 4.17.21
   preact: 10.11.3
@@ -340,10 +340,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@liuli-util/google-translate-api-free/0.1.4:
-    resolution: {integrity: sha512-B7o4lLxHSKPMX5Fp71Ccx8h26Tn/VWH6tgV8q6F8Zr9zBgyokyL7r9lG5omwFk/W7eJXHcS/oLqq/n2tpMEJCQ==}
-    dependencies:
-      query-string: 7.1.3
+  /@liuli-util/google-translate-api-free/0.2.0:
+    resolution: {integrity: sha512-lgx/L4h9NKAft4Mk7OHjuc1JxWa8qaAX4iS9eztXqsJ6dwlY+mS32TFKoMQlXTBe/6szFIHy6sbGD+slx2GHTg==}
     dev: false
 
   /@preact/preset-vite/2.5.0_preact@10.11.3+vite@3.2.5:
@@ -636,11 +634,6 @@ packages:
     dependencies:
       ms: 2.1.2
     dev: true
-
-  /decode-uri-component/0.2.2:
-    resolution: {integrity: sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==}
-    engines: {node: '>=0.10'}
-    dev: false
 
   /depd/2.0.0:
     resolution: {integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==}
@@ -1130,11 +1123,6 @@ packages:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
     dev: true
 
-  /filter-obj/1.1.0:
-    resolution: {integrity: sha512-8rXg1ZnX7xzy2NGDVkBVaAy+lSlPNwad13BtgSlLuxfIslyt5Vg64U7tFcCt4WS1R0hvtnQybT/IyCkGZ3DpXQ==}
-    engines: {node: '>=0.10.0'}
-    dev: false
-
   /fs-extra/8.1.0:
     resolution: {integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==}
     engines: {node: '>=6 <7 || >=8'}
@@ -1460,16 +1448,6 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /query-string/7.1.3:
-    resolution: {integrity: sha512-hh2WYhq4fi8+b+/2Kg9CEge4fDPvHS534aOOvOZeQ3+Vf2mCFsaFBYj0i+iXcAq6I9Vzp5fjMFBlONvayDC1qg==}
-    engines: {node: '>=6'}
-    dependencies:
-      decode-uri-component: 0.2.2
-      filter-obj: 1.1.0
-      split-on-first: 1.1.0
-      strict-uri-encode: 2.0.0
-    dev: false
-
   /resolve-from/4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
     engines: {node: '>=4'}
@@ -1519,19 +1497,9 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /split-on-first/1.1.0:
-    resolution: {integrity: sha512-43ZssAJaMusuKWL8sKUBQXHWOpq8d6CfN/u1p4gUzfJkM05C8rxTmYrkIPTXapZpORA6LkkzcUulJ8FqA7Uudw==}
-    engines: {node: '>=6'}
-    dev: false
-
   /statuses/2.0.1:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
     engines: {node: '>= 0.8'}
-    dev: false
-
-  /strict-uri-encode/2.0.0:
-    resolution: {integrity: sha512-QwiXZgpRcKkhTj2Scnn++4PKtWsH0kpzZ62L2R6c/LUVYv7hVnZqcg2+sMuT6R7Jusu1vviK/MFsu6kNJfWlEQ==}
-    engines: {node: '>=4'}
     dev: false
 
   /supports-color/5.5.0:

@@ -8,7 +8,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@liuli-util/google-translate-api-free": "^0.1.4",
+    "@liuli-util/google-translate-api-free": "^0.2.0",
     "@vitalets/google-translate-api": "^9.0.0",
     "lodash-es": "^4.17.21",
     "preact": "^10.11.2"
