@@ -1,7 +1,7 @@
 import { getSelect, writeClipboard } from './utils/DOMEditorUtil'
 
 async function translate(text: string): Promise<string> {
-  const r = await chrome.runtime.sendMessage({ text })
+  const r = await browser.runtime.sendMessage({ text })
   console.log('resp: ', r)
   return r.text
 }
@@ -24,7 +24,7 @@ async function translateSelect() {
 //   }
 // })
 
-chrome.runtime.onMessage.addListener(async (message) => {
+browser.runtime.onMessage.addListener(async (message) => {
   console.log('onCopy: ', message)
   switch (message.action) {
     case 'copy':

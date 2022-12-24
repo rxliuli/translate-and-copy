@@ -1,5 +1,4 @@
 import { TranslateOptions } from '@liuli-util/google-translate-api-free'
-import { writeClipboard } from '../content-scripts/utils/DOMEditorUtil'
 
 const langs: Record<TranslateOptions['from'], string> = {
   auto: 'Automatic',
@@ -113,7 +112,7 @@ const langs: Record<TranslateOptions['from'], string> = {
 
 window.addEventListener('load', async () => {
   const $select = document.querySelector('#select')! as HTMLSelectElement
-  const language = (await chrome.storage.sync.get('to')).to ?? 'en'
+  const language = (await browser.storage.sync.get('to')).to ?? 'en'
   $select.replaceChildren(
     ...Object.entries(langs).map(([k, v]) => {
       const $option = document.createElement('option')
@@ -127,6 +126,6 @@ window.addEventListener('load', async () => {
   )
   console.log('language: ', language)
   $select.addEventListener('change', () => {
-    chrome.storage.sync.set({ to: $select.value })
+    browser.storage.sync.set({ to: $select.value })
   })
 })

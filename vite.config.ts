@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import preact from '@preact/preset-vite'
 import path from 'node:path'
 import { chromeExtension } from 'vite-plugin-chrome-extension'
+import autoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
   resolve: {
@@ -17,8 +18,20 @@ export default defineConfig({
     sourcemap: true,
     assetsInlineLimit: 10096,
   },
-  plugins: [preact(), chromeExtension()] as any,
+  plugins: [
+    preact(),
+    chromeExtension(),
+    autoImport({
+      imports: [
+        {
+          'webextension-polyfill': [['*', 'browser']],
+        },
+      ],
+      dts: false,
+    }),
+  ] as any,
   optimizeDeps: {
     exclude: ['node-fetch'],
+    include: ['webextension-polyfill'],
   },
 })

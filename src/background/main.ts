@@ -17,28 +17,24 @@ class TranslatorHandler implements ITranslatorHandler {
 const translator = new Translator(new TranslatorHandler())
 
 async function translate(message: string) {
-  const language = (await chrome.storage.sync.get('to')).to ?? 'en'
+  const language = (await browser.storage.sync.get('to')).to ?? 'en'
   const { text } = await translator.translate(message, {
     to: language,
   })
   console.log('translated: ', text)
-  chrome.notifications.create(
-    {
-      type: 'basic',
-      title: 'translate-chrome-plugin',
-      message: ' Translated: ' + text,
-      iconUrl: icon,
-    },
-    (msj) => {
-      setTimeout(() => {
-        chrome.notifications.clear(msj)
-      }, 1000)
-    },
-  )
+  const msj = await browser.notifications.create({
+    type: 'basic',
+    title: 'translate-chrome-plugin',
+    message: ' Translated: ' + text,
+    iconUrl: icon,
+  })
+  setTimeout(() => {
+    browser.notifications.clear(msj)
+  }, 1000)
   return text
 }
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.text) {
     ;(async () => {
       sendResponse({ text: await translate(message.text) })
@@ -47,27 +43,27 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   return true
 })
 
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.contextMenus.create({
+browser.runtime.onInstalled.addListener(() => {
+  browser.contextMenus.create({
     id: 'translate-and-copy',
     title: 'Translate And Copy',
     contexts: ['selection'],
   })
 })
 
-chrome.contextMenus.onClicked.addListener(async (info, tab) => {
+browser.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.selectionText) {
     const r = await translate(info.selectionText)
     console.log('info.selectionText: ', info.selectionText, r)
-    const tabs = await chrome.tabs.query({ active: true, currentWindow: true })
-    chrome.tabs.sendMessage(tabs[0].id!, { action: 'copy', text: r })
+    const tabs = await browser.tabs.query({ active: true, currentWindow: true })
+    browser.tabs.sendMessage(tabs[0].id!, { action: 'copy', text: r })
   }
 })
 
-chrome.commands.onCommand.addListener(async (command) => {
+browser.commands.onCommand.addListener(async (command) => {
   console.log('command: ', command)
   if (command === 'translate') {
-    const tabs = await chrome.tabs.query({ active: true, currentWindow: true })
-    chrome.tabs.sendMessage(tabs[0].id!, { action: 'translate' })
+    const tabs = await browser.tabs.query({ active: true, currentWindow: true })
+    browser.tabs.sendMessage(tabs[0].id!, { action: 'translate' })
   }
 })
