@@ -1,5 +1,4 @@
 import { TranslateOptions } from '@liuli-util/google-translate-api-free'
-import { writeClipboard } from '../content-scripts/utils/DOMEditorUtil'
 
 const langs: Record<TranslateOptions['from'], string> = {
   auto: 'Automatic',

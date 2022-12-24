@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 *.crx
 *.zip
+*.pem
+*.xpi
