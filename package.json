@@ -23,6 +23,7 @@
   "devDependencies": {
     "@ffflorian/jszip-cli": "^3.1.6",
     "@preact/preset-vite": "^2.4.0",
+    "@types/chrome": "^0.0.206",
     "@types/firefox-webext-browser": "^94.0.1",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.11.17",

@@ -4,6 +4,7 @@ specifiers:
   '@ffflorian/jszip-cli': ^3.1.6
   '@liuli-util/google-translate-api-free': ^0.2.0
   '@preact/preset-vite': ^2.4.0
+  '@types/chrome': ^0.0.206
   '@types/firefox-webext-browser': ^94.0.1
   '@types/lodash-es': ^4.17.6
   '@types/node': ^18.11.17
@@ -31,6 +32,7 @@ dependencies:
 devDependencies:
   '@ffflorian/jszip-cli': 3.1.6
   '@preact/preset-vite': 2.5.0_preact@10.11.3+vite@3.2.5
+  '@types/chrome': 0.0.206
   '@types/firefox-webext-browser': 94.0.1
   '@types/lodash-es': 4.17.6
   '@types/node': 18.11.17
@@ -574,12 +576,33 @@ packages:
       defer-to-connect: 2.0.1
     dev: true
 
+  /@types/chrome/0.0.206:
+    resolution: {integrity: sha512-fQnTFjghPB9S4UzbfublUB6KmsBkvvJeGXGaaoD5Qu+ZxrDUfgJnKN5egLSzDcGAH5YxQubDgbCdNwwUGewQHg==}
+    dependencies:
+      '@types/filesystem': 0.0.32
+      '@types/har-format': 1.2.10
+    dev: true
+
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
     dev: true
 
+  /@types/filesystem/0.0.32:
+    resolution: {integrity: sha512-Yuf4jR5YYMR2DVgwuCiP11s0xuVRyPKmz8vo6HBY3CGdeMj8af93CFZX+T82+VD1+UqHOxTq31lO7MI7lepBtQ==}
+    dependencies:
+      '@types/filewriter': 0.0.29
+    dev: true
+
+  /@types/filewriter/0.0.29:
+    resolution: {integrity: sha512-BsPXH/irW0ht0Ji6iw/jJaK8Lj3FJemon2gvEqHKpCdDCeemHa+rI3WBGq5z7cDMZgoLjY40oninGxqk+8NzNQ==}
+    dev: true
+
   /@types/firefox-webext-browser/94.0.1:
     resolution: {integrity: sha512-I6iHRQJSTZ+gYt2IxdH2RRAMvcUyK8v5Ig7fHQR0IwUNYP7hz9+cziBVIKxLCO6XI7fiyRsNOWObfl3/4Js2Lg==}
+    dev: true
+
+  /@types/har-format/1.2.10:
+    resolution: {integrity: sha512-o0J30wqycjF5miWDKYKKzzOU1ZTLuA42HZ4HE7/zqTOc/jTLdQ5NhYWvsRQo45Nfi1KHoRdNhteSI4BAxTF1Pg==}
     dev: true
 
   /@types/http-errors/1.8.2:
