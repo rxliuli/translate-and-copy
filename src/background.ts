@@ -2,7 +2,7 @@ import {
   ITranslatorHandler,
   Translator,
 } from '@liuli-util/google-translate-api-free'
-import icon from '../assets/icon-48.png'
+import icon from './assets/icon-48.png'
 
 class TranslatorHandler implements ITranslatorHandler {
   async handle<T>(url: string): Promise<T> {
