@@ -1,6 +1,6 @@
 {
   "name": "Translate And Copy",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Translate selected text and copy to clipboard for use",
   "manifest_version": 3,
   "background": {
