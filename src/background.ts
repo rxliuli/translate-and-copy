@@ -1,32 +1,23 @@
-import {
-  ITranslatorHandler,
-  Translator,
-} from '@liuli-util/google-translate-api-free'
 import icon from './assets/icon-48.png'
+import { chatgpt } from './translate/chatgpt'
+import { google } from './translate/google'
 
-class TranslatorHandler implements ITranslatorHandler {
-  async handle<T>(url: string): Promise<T> {
-    const resp = await fetch(url, {
-      method: 'get',
-    })
-    const r = await resp.json()
-    return r as T
-  }
-}
-
-const translator = new Translator(new TranslatorHandler())
-
-async function translate(message: string) {
-  const language = (await chrome.storage.sync.get('to')).to ?? 'en'
-  const { text } = await translator.translate(message, {
-    to: language,
+async function translate(text: string) {
+  const { to = 'en', engine = 'google' } = await chrome.storage.sync.get([
+    'to',
+    'engine',
+  ])
+  console.log('translate params: ', text, to, engine)
+  const r = await (engine === 'google' ? google : chatgpt)({
+    text,
+    to,
   })
-  console.log('translated: ', text)
+  console.log('translate result: ', r)
   chrome.notifications.create(
     {
       type: 'basic',
       title: 'translate-chrome-plugin',
-      message: ' Translated: ' + text,
+      message: ' Translated: ' + r,
       iconUrl: icon,
     },
     (msj) => {
@@ -35,7 +26,7 @@ async function translate(message: string) {
       }, 1000)
     },
   )
-  return text
+  return r
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {

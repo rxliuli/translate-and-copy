@@ -5,14 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Translate And Copy</title>
+    <link rel="stylesheet" href="./css/pico.min.css" />
+    <link rel="stylesheet" href="./css/index.css" />
     <script src="main.ts" type="module"></script>
   </head>
 
   <body>
-    <form id="control-row">
-      <label for="input">Translate Language:</label>
-      <select type="text" id="select"></select>
-      <br />
-    </form>
+    <main class="container">
+      <form id="control-row">
+        <div>
+          <label for="input">Translate Language:</label>
+          <select type="text" id="to"></select>
+        </div>
+        <div>
+          <label for="input">Translate Engine:</label>
+          <select type="text" id="engine"></select>
+        </div>
+      </form>
+    </main>
   </body>
 </html>

@@ -12,10 +12,8 @@ async function translateSelect() {
     console.warn("don't select text")
     return
   }
-
-  const resp = await translate(text)
-  console.log('translate resp: ', resp)
-  await writeClipboard(resp as string)
+  const r = await translate(text)
+  await writeClipboard(r as string)
 }
 
 // document.addEventListener('keydown', async (e) => {

@@ -11,7 +11,8 @@
     "start-chromium": "web-ext run --source-dir ./dist --target=chromium"
   },
   "dependencies": {
-    "@liuli-util/google-translate-api-free": "^0.2.0"
+    "@liuli-util/google-translate-api-free": "^0.2.0",
+    "@picocss/pico": "^1.5.7"
   },
   "devDependencies": {
     "@ffflorian/jszip-cli": "^3.1.6",
