@@ -16,12 +16,6 @@ async function translateSelect() {
   await writeClipboard(r as string)
 }
 
-// document.addEventListener('keydown', async (e) => {
-//   if (e.altKey && e.key === 't') {
-//     await translateSelect()
-//   }
-// })
-
 chrome.runtime.onMessage.addListener(async (message) => {
   console.log('onCopy: ', message)
   switch (message.action) {

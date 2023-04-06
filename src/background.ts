@@ -1,14 +1,10 @@
 import icon from './assets/icon-48.png'
-import { chatgpt } from './translate/chatgpt'
 import { google } from './translate/google'
 
 async function translate(text: string) {
-  const { to = 'en', engine = 'google' } = await chrome.storage.sync.get([
-    'to',
-    'engine',
-  ])
-  console.log('translate params: ', text, to, engine)
-  const r = await (engine === 'google' ? google : chatgpt)({
+  const { to = 'en' } = await chrome.storage.sync.get(['to'])
+  console.log('translate params: ', text, to)
+  const r = await google({
     text,
     to,
   })
@@ -50,15 +46,13 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.selectionText) {
     const r = await translate(info.selectionText)
     console.log('info.selectionText: ', info.selectionText, r)
-    const tabs = await chrome.tabs.query({ active: true, currentWindow: true })
-    chrome.tabs.sendMessage(tabs[0].id!, { action: 'copy', text: r })
+    chrome.tabs.sendMessage(tab!.id!, { action: 'copy', text: r })
   }
 })
 
-chrome.commands.onCommand.addListener(async (command) => {
+chrome.commands.onCommand.addListener(async (command, tab) => {
   console.log('command: ', command)
   if (command === 'translate') {
-    const tabs = await chrome.tabs.query({ active: true, currentWindow: true })
-    chrome.tabs.sendMessage(tabs[0].id!, { action: 'translate' })
+    chrome.tabs.sendMessage(tab.id!, { action: 'translate' })
   }
 })

@@ -1,3 +1,4 @@
+import { getSelect, writeClipboard } from '../content-scripts/utils/DOMEditorUtil'
 import { langs } from './constants/langs'
 
 window.addEventListener('load', async () => {
@@ -13,14 +14,6 @@ window.addEventListener('load', async () => {
       options: Object.entries(langs)
         .filter(([k]) => k !== 'auto')
         .map(([k, v]) => ({ label: v, value: k })),
-    },
-    {
-      name: 'engine',
-      value: engine,
-      options: [
-        { label: 'Google', value: 'google' },
-        { label: 'Chatgpt', value: 'chatgpt' },
-      ],
     },
   ]
 
